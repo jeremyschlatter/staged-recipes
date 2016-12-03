@@ -22,9 +22,8 @@ source:
 
 build:
   number: 0
-  script: cp -r . $PREFIX && rm $PREFIX/conda_build.sh            # [not win]
-  # TODO: verify this works on windows
-  script: xcopy . %PREFIX% /s /e /h & del %PREFIX%\conda_bld.bat  # [win]
+  # Needed because of https://github.com/NixOS/patchelf/issues/66
+  binary_relocation: False  # [linux]
 
 test:
   files:
