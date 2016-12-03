@@ -1,23 +1,24 @@
 {% set version = '1.7.4' %}
+{% set go_binary = 'https://golang.org/dl/go' + version %}
 
 package:
   name: golang
   version: {{ version }}
 
 source:
-  url: https://golang.org/dl/go{{ version }}.darwin-amd64.tar.gz            # [osx]
+  url: {{ go_binary }}.darwin-amd64.tar.gz                                  # [osx]
   sha256: f86c727012e33f3f482b049281aaee24211fe29dfafd121d93f32799a6b6ba2d  # [osx]
 
-  url: https://golang.org/dl/go{{ version }}.linux-amd64.tar.gz             # [linux64]
+  url: {{ go_binary }}.linux-amd64.tar.gz                                   # [linux64]
   sha256: 47fda42e46b4c3ec93fa5d4d4cc6a748aa3f9411a2a2b7e08e3a6d80d753ec8b  # [linux64]
 
-  url: https://golang.org/dl/go{{ version }}.linux-386.tar.gz               # [linux32]
+  url: {{ go_binary }}.linux-386.tar.gz                                     # [linux32]
   sha256: 31d27752bada47de84e8884cabe6dc13140e459e3aad540c17abc0fcac370c54  # [linux32]
 
-  url: https://golang.org/dl/go{{ version }}.windows-amd64.zip              # [win64]
+  url: {{ go_binary }}.windows-amd64.zip                                    # [win64]
   sha256: 36739164fed38a6da908813aba48d72fb22fea923de5611a85a81135b7cfceb9  # [win64]
 
-  url: https://golang.org/dl/go{{ version }}.windows-386.zip                # [win32]
+  url: {{ go_binary }}.windows-386.zip                                      # [win32]
   sha256: 49df7846ab04d6106cc501526c14c055788e8c67590a967fb4abef7b8b70751f  # [win32]
 
 build:
