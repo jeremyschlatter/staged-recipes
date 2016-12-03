@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# Based on https://anaconda.org/insertinterestingnamehere/orfeo
+
 # If GOROOT_HAS_PREVIOUS is not currently set,
 # Assume the activate script was not run successfully,
 # so, these particular environment variables don't

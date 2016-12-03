@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# Based on https://anaconda.org/insertinterestingnamehere/orfeo
+
 # Detect and store whether or not GOROOT is already set.
 # Technique explained at http://stackoverflow.com/a/13864829/1935144
 if [ -z ${GOROOT+x} ]

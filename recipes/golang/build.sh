@@ -5,6 +5,7 @@ cp $PREFIX/go/bin/* $PREFIX/bin/
 rm $PREFIX/go/conda_build.sh
 
 # Set up hooks to manage $GOROOT on conda env activation/deactivation
+# Based on https://anaconda.org/insertinterestingnamehere/orfeo
 ACTIVATE_DIR="$PREFIX/etc/conda/activate.d"
 DEACTIVATE_DIR="$PREFIX/etc/conda/deactivate.d"
 mkdir -p $ACTIVATE_DIR
