@@ -1,0 +1,49 @@
+{% set version = '1.7.4' %}
+
+package:
+  name: golang
+  version: {{ version }}
+
+source:
+  url: https://golang.org/dl/go{{ version }}.darwin-amd64.tar.gz            # [osx]
+  sha256: f86c727012e33f3f482b049281aaee24211fe29dfafd121d93f32799a6b6ba2d  # [osx]
+
+  url: https://golang.org/dl/go{{ version }}.linux-amd64.tar.gz             # [linux64]
+  sha256: 47fda42e46b4c3ec93fa5d4d4cc6a748aa3f9411a2a2b7e08e3a6d80d753ec8b  # [linux64]
+
+  url: https://golang.org/dl/go{{ version }}.linux-386.tar.gz               # [linux32]
+  sha256: 31d27752bada47de84e8884cabe6dc13140e459e3aad540c17abc0fcac370c54  # [linux32]
+
+  url: https://golang.org/dl/go{{ version }}.windows-amd64.zip              # [win64]
+  sha256: 36739164fed38a6da908813aba48d72fb22fea923de5611a85a81135b7cfceb9  # [win64]
+
+  url: https://golang.org/dl/go{{ version }}.windows-386.zip                # [win32]
+  sha256: 49df7846ab04d6106cc501526c14c055788e8c67590a967fb4abef7b8b70751f  # [win32]
+
+build:
+  number: 0
+  script: cp -r . $PREFIX && rm $PREFIX/conda_build.sh            # [not win]
+  # TODO: verify this works on windows
+  script: xcopy . %PREFIX% /s /e /h & del %PREFIX%\conda_bld.bat  # [win]
+
+test:
+  files:
+    - test.go
+  commands:
+    - go run test.go
+
+about:
+  home: https://golang.org
+  license: BSD-3-Clause
+  license_family: BSD
+  license_file: LICENSE
+  summary: 'The Go programming language'
+  description:
+    Go is an open source programming language that makes it easy to build
+    simple, reliable, and efficient software.
+  doc_url: https://golang.org/doc
+  dev_url: https://github.com/golang/go
+
+extra:
+  recipe-maintainers:
+    - jeremyschlatter
